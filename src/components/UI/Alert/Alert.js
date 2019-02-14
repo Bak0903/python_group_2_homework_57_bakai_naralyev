@@ -9,7 +9,8 @@ const Alert = props => (
             className={['Alert', props.type].join(' ')}
         >
             {props.children}
-            <Button buttonType={props.dismiss}>CANCEL</Button>
+
+            {props.dismiss === undefined ? null :  <Button buttonType={props.dismiss}>X</Button> }
         </div>
     : null
 );

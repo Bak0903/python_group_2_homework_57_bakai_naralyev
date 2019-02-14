@@ -20,6 +20,7 @@ const Modal = props => (
             <Button buttonType={props.buttons.Danger}>CANCEL</Button>
             <Button buttonType={props.buttons.Success}>CONTINUE</Button>
         </div>
+
     </div>
 );
 

@@ -59,10 +59,11 @@ class App extends Component {
               <p>Continue to checkout?</p>
           </Modal>
           <Alert
-              type={"welcom"}
+              type={"welcome"}
               show={this.state.Alert}
               dismiss={Buttons.CloseAlert}
           >Welcome!</Alert>
+
       </div>
     )
   }
