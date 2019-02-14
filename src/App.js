@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Modal from './components/UI/Modal/Modal';
 import Button from './components/UI/Button/Button';
+import Alert from './components/UI/Alert/Alert';
 
 class App extends Component {
 
@@ -9,26 +10,36 @@ class App extends Component {
         super(props);
         this.state = {
             Modal: false,
+            Alert: true,
         }
   };
 
-  showHandler = () => {
+  showModal = () => {
     this.setState({Modal: true});
   };
 
-  showCancelHandler = () => {
+  cancelModal = () => {
     this.setState({Modal: false});
   };
 
+  showAlert = () => {
+    this.setState({Alert: true});
+  };
+
+  cancelAlert = () => {
+    this.setState({Alert: false});
+  };
+
   continueHandler = () => {
-    alert('You continued!');
+      alert("Clicked continue!")
   };
 
   render() {
     const Buttons = {
-        ModalButton: {type: 'modal_button', label: 'Modal', clicked: this.showHandler},
+        ModalButton: {type: 'modal_button', label: 'Modal', clicked: this.showModal},
         Success: {type: 'Success', label: 'Continue', clicked: this.continueHandler},
-        Danger: {type: 'Danger', label: 'Close', clicked: this.showCancelHandler},
+        Danger: {type: 'Danger', label: 'Close', clicked: this.cancelModal},
+        CloseAlert: {type: 'Danger', label: 'Close', clicked: this.cancelAlert},
     };
 
    return (
@@ -47,6 +58,11 @@ class App extends Component {
               <p>Some content</p>
               <p>Continue to checkout?</p>
           </Modal>
+          <Alert
+              type={"welcom"}
+              show={this.state.Alert}
+              dismiss={Buttons.CloseAlert}
+          >Welcome!</Alert>
       </div>
     )
   }
